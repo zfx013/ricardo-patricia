@@ -1,3 +1,8 @@
+<!doctype html>
+<meta charset="utf-8">
+<!-- Sans cette ligne, le telephone rend la page dans une fenetre virtuelle de
+     980 px qu'il reduit ensuite : tout apparait minuscule et il faut zoomer. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ricardo e Patrícia</title>
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
@@ -509,10 +514,11 @@ section{padding-block:var(--rhythm)}
 }
 .names{
   font-family:var(--display);
-  /* 11.6vw est exactement la taille des prenoms sur la carte de l'ouverture
-     (11.6cqw d'un cadre large comme l'ecran) : le raccord se fait donc sans
-     agrandir ni retrecir, et sur un grand telephone ils restent lisibles. */
-  font-size:clamp(34px,11.6vw,52px);
+  /* On reproduit ici la taille exacte des prenoms de la carte de l'ouverture.
+     Le cadre fait min(100vw, 51.4svh) de large et la carte ecrit a 11.6 % de
+     cette largeur : le raccord avec le hero se fait donc sans changer
+     d'echelle, quelle que soit la forme de l'ecran. */
+  font-size:clamp(34px,min(11.6vw,5.96svh),78px);
   letter-spacing:.05em;line-height:1.12;color:var(--ink);
 }
 .names .n1,.names .n2{display:block}
